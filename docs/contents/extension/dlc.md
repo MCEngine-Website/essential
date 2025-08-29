@@ -34,7 +34,7 @@ public class MyEssentialDLC implements IMCEngineEssentialDLC {
 
     @Override
     public void setId(String id) {
-        MCEngineCoreApi.setId("artificialintelligence-example-api");
+        MCEngineCoreApi.setId("essential-example-api");
     }
 }
 ```
