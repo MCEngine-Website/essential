@@ -36,6 +36,7 @@ It acts as the backbone for **Essential extensions** such as AddOns, APIs, DLCs,
 ## Configuration
 ```yaml
 enable: true
+license: free
 
 database:
   type: sqlite   # or mysql / postgresql
