@@ -12,3 +12,5 @@
   - `home.cross-world` (boolean; allow teleporting across worlds)
 
 > The database backend is selected by Essential via `database.type` (`sqlite` | `mysql` | `postgresql`) in `plugins/MCEngineEssential/config.yml`.
+
+> Home limits can be adjusted dynamically via commands (`/home limit add|minus <player> <int>`).

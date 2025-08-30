@@ -11,3 +11,11 @@ It will automatically create its database schema on first run.
 
 license: free
 ```
+
+**Database Selection**
+The database backend is chosen from the main Essential config (`plugins/MCEngineEssential/config.yml`):
+
+```yaml
+database:
+  type: sqlite # or mysql, postgresql
+```
