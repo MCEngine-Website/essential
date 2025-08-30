@@ -1,5 +1,8 @@
 # Introduction
 
+[`Repository`](https://github.com/MCEngine-Extension/essential-addon-vault)
+[`GitHub Release`](https://github.com/MCEngine-Extension/essential-addon-vault/releases)
+
 **Essential Vault** is an AddOn that provides a personal, database-backed storage (“vault”) for every player.  
 It preserves full Bukkit `ItemStack` metadata (enchantments, custom names, NBT, etc.) so items round-trip exactly as placed.
 

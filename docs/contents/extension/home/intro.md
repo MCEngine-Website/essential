@@ -1,5 +1,8 @@
 # Introduction
 
+[`Repository`](https://github.com/MCEngine-Extension/essential-addon-home)
+[`GitHub Release`](https://github.com/MCEngine-Extension/essential-addon-home/releases)
+
 **Essential Home** is an AddOn that lets players save and teleport to personal “home” locations.  
 Homes are stored in a database via Essential’s DB layer, and tab-completion makes it easy to manage named homes.
 

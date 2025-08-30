@@ -1,5 +1,8 @@
 # Introduction to MCEngine Essential (Engine)
 
+[`Repository`](https://github.com/MCEngine-Engine/essential)
+[`GitHub Release`](https://github.com/MCEngine-Engine/essential/releases)
+
 The **MCEngine Essential Engine** is the core plugin module that provides fundamental services for the MCEngine ecosystem.  
 It acts as the backbone for **Essential extensions** such as AddOns, APIs, DLCs, Libraries, and Agents.
 
