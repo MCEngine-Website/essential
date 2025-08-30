@@ -2,27 +2,33 @@
 
 ## Lifecycle
 1. **Enable**  
-   On plugin load, the AddOn ensures the schema exists:
+   On plugin load, the AddOn ensures the schema exists and wires the DB:
    - `fly(fly_id, player_uuid, fly_duration)`
+   - Ensures a default row (duration `0`) on **player join**
 
 2. **Activate**  
    Player runs `/fly` (or `/fly on`) → the AddOn:
    - Checks remaining `fly_duration` in DB
-   - If > 0, flight mode is enabled
-   - Starts a per-player scheduled task that decrements duration every 30s
-   - Prevents duplicate activation if already active
+   - If `> 0`, enables flight
+   - **Prevents duplicate activation** if already flying
+   - Starts a **per-player scheduled task** that decrements duration **every 30s**
+   - Sends remaining time in **years, hours, minutes, seconds** when activated
 
 3. **Deactivate**  
-   - Player runs `/fly off`, leaves server, or their duration hits `0`
-   - Flight is disabled, and the per-player task is cancelled
-   - On self-deactivation, the AddOn subtracts the partial elapsed time since the last tick
-   - Player is always shown their remaining time in **years, hours, minutes, seconds** format
-   - No decrement happens while offline
+   - Player runs `/fly off`, leaves server, or duration reaches `0`
+   - Disables flight and **cancels the player’s task**
+   - On **self-deactivation**, subtracts the **partial elapsed time** since the last 30s tick
+   - **Always sends remaining time** in Y/H/M/S when time is reduced (on tick and on self-deactivate)
+   - **No decrement offline** (leaving/kick stops the task immediately)
 
 4. **Admin Add**  
    - Admin runs `/fly time add <player> <seconds>`
    - Adds seconds to the target player’s duration in DB
-   - Both admin and target receive formatted remaining time feedback
+   - Both admin and target see **formatted** remaining time feedback
+
+5. **Get Time**  
+   - Player runs `/fly get time`
+   - Shows their own remaining flight time in **Y/H/M/S** format
 
 ## Permissions
 - `mcengine.essential.fly.use` — required to toggle flight  
@@ -32,12 +38,14 @@
 - `/fly`  
 - `/fly on`  
 - `/fly off`  
+- `/fly get time`  
 - `/fly time add <player> <seconds>`
 
 ## Storage Notes
-- **Durations stored per player**: `fly_duration` in seconds  
-- **0 = no remaining time** (flight activation denied)  
-- **Backends**: Works with SQLite/MySQL/PostgreSQL  
+- **Per-player durations** stored as seconds: `fly_duration`  
+- **0 = no remaining time** (activation denied)  
+- **Backends**: SQLite / MySQL / PostgreSQL  
+- **Safety**: No time is consumed while the player is offline
 
 ## File Paths
 - AddOn JAR:  
