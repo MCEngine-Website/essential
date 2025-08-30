@@ -1,6 +1,6 @@
 # Requirements
 
-- Requires **MCEngine Essential (Engine)** — use the **same version** as your server’s Essential engine.
+- Requires [**`MCEngine Essential`**](https://github.com/MCEngine-Engine/essential/releases) — use the **same version** as your server’s Essential engine.
 - Place this AddOn here:  
   `plugins/MCEngineEssential/extensions/addons/`
 - (Optional) Settings can be read from your main Essential `config.yml`.  
