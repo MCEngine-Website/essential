@@ -2,6 +2,7 @@
 # Essential DLC Module Usage Guide
 
 **Path:** `com.example.MyEssentialDLC.java`
+[`Example Repository`](https://github.com/MCEngine-Extension/essential-dlc-example)
 
 This document explains how to implement the `IMCEngineEssentialDLC` interface to create an Essential DLC for the MCEngine.
 

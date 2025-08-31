@@ -2,6 +2,7 @@
 # Essential API Module Usage Guide
 
 **Path:** `com.example.MyEssentialAPI.java`
+[`Example Repository`](https://github.com/MCEngine-Extension/essential-api-example)
 
 This document explains how to implement the `IMCEngineEssentialAPI` interface to create a central API module for the MCEngine Essential system.
 

@@ -2,6 +2,7 @@
 # Essential Library Module Usage Guide
 
 **Path:** `com.example.MyEssentialLibrary.java`
+[`Example Repository`](https://github.com/MCEngine-Extension/essential-library-example)
 
 This document explains how to implement the `IMCEngineEssentialLibrary` interface to build a supporting library for Essential features.
 

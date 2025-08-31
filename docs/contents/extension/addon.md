@@ -2,6 +2,7 @@
 # Essential AddOn Usage Guide
 
 **Path:** `com.example.MyEssentialAddOn.java`
+[`Example Repository`](https://github.com/MCEngine-Extension/essential-addon-example)
 
 This document explains how to implement the `IMCEngineEssentialAddOn` interface to create a custom AddOn for the MCEngine Essential module.
 
