@@ -5,22 +5,27 @@
    `Home.java` runs on add-on load:
    - Ensures the **DB schema** via `HomeDB*`
    - Registers the `/home` command and binds the tab completer
+
 2. **Commands**
-   - **`/home [name]`** → Teleport to an existing home
-   - **`/home set [name]`** → Save your current location as a named home  
-   - **`/home delete [name]`** → Delete a saved home
-   - **`/home limit add <player> <int>`** → Increase a player’s home limit (requires `mcengine.essential.home.limit.add`)
-   - **`/home limit minus <player> <int>`** → Decrease a player’s home limit (requires `mcengine.essential.home.limit.minus`)
+   - **`/home`** → Opens a GUI listing all saved homes for click-to-teleport
+   - **`/home tp [name]`** → Teleports to the named home
+   - **`/home set [name]`** → Saves your current location as a named home  
+   - **`/home delete [name]`** → Deletes the named home
+   - **`/home limit add <player> <int>`** → Increases a player’s home limit (requires `mcengine.essential.home.limit.add`)
+   - **`/home limit minus <player> <int>`** → Decreases a player’s home limit (requires `mcengine.essential.home.limit.minus`)
    - (Implementations may also support `/homes` to list names)
+
 3. **Tab Completion**
-   - `HomeTabCompleter` suggests your saved home names when typing `/home`
-   - Also suggests `add`, `minus`, player names, and common integers for `/home limit`
+   - At the first argument, `HomeTabCompleter` now suggests **subcommands only**: `set`, `tp`, `delete`, `limit`
+   - For **`/home tp …`** and **`/home delete …`**, it suggests your saved home names for the second argument
+   - For **`/home limit`**, it suggests `add`, `minus`, online player names, and common integers
+
 4. **Persistence**
    - `HomeDB*` stores homes per player in the Essential database
    - Each record includes: `player_uuid`, `home_limit`, and named entries in `home_data` with coords
 
 ## Permissions
-- `mcengine.essential.home.use` — use `/home` to teleport
+- `mcengine.essential.home.use` — use `/home` features (teleport/open GUI)
 - `mcengine.essential.home.set` — use `/home set` to create
 - `mcengine.essential.home.delete` — use `/home delete` to remove
 - `mcengine.essential.home.limit.add` — allow increasing home limits
@@ -38,4 +43,4 @@ If present in `config.yml`, `HomeConfigUtil` can read:
 - **Names**: Treat names case-insensitively for a better UX, but store them consistently.
 
 **Summary:**  
-Essential Home provides a clean, database-backed home system with commands, tab-completion, player-specific limits, and optional configuration—built on the same robust foundation as other Essential add-ons.
+Essential Home provides a clean, database-backed home system with a GUI, precise `/home tp` teleporting, tab-completion, player-specific limits, and optional configuration—built on the same robust foundation as other Essential add-ons.
