@@ -52,3 +52,19 @@
   `plugins/MCEngineEssential/extensions/addons/`  
 - Main Essential config:  
   `plugins/MCEngineEssential/config.yml`
+
+---
+
+## New Commands
+- `/fly get item <seconds>` — gives a **paper voucher** that adds the specified seconds when redeemed.
+- `/fly get item <hdbId> <seconds>` — gives a **HeadDatabase head voucher** (falls back to paper if HDB not present).
+
+## New Listener Behavior
+- Right-click **anywhere** (air or block) with a voucher to redeem it.
+- Vouchers are identified via **string namespaces** in PDC:
+  - Marker: `mcengine_essential:fly_time_add = 1`
+  - Amount (seconds): `mcengine_essential:fly_time = <int>`
+- Redemption flow is **non-blocking**:
+  - Event cancel + inventory updates happen on the **main thread**.
+  - DB operations (`ensurePlayerRow`, `getDuration`, `setDuration`) run **asynchronously** via `BukkitRunnable`.
+- Only the **main hand** (`EquipmentSlot.HAND`) is processed to avoid duplicate triggers.
