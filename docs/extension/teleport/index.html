@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Extension - Teleport</title>
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="https://mcengine-website.github.io/templates/v1/css/dashboard/style.css" />
+  <link rel="stylesheet" href="https://mcengine-website.github.io/templates/v1/css/partials/sidebar.css" />
+
+  <!-- Markdown Parser + Content Loader -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://mcengine-website.github.io/templates/v1/scripts/markdown-loader.js"></script>
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar box" id="sidebar"></aside>
+
+      <!-- Main content box -->
+      <main class="main-content">
+        <div class="content-header">
+          <h1>Teleport</h1>
+        </div>
+        <div class="content-body" id="markdown-container">
+          <!-- Markdown content loaded here -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    fetch('../../partials/sidebar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('sidebar').innerHTML = html;
+      });
+
+    // Load markdown content about essential system
+    loadMarkdownFiles('../../contents/extension/teleport/', 'markdown-container', [
+      'intro.md',
+      'requirement.md',
+      'how-it-work.md'
+    ]);
+  </script>
+</body>
+</html>
